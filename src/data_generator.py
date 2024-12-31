@@ -140,6 +140,8 @@ class ScalableContentGenerator:
         caption = self.generate_dynamic_caption(theme, geotag, device_type)
         hashtags = self.generate_dynamic_hashtags(theme)
 
+        avg_wait_time = round(random.uniform(1.0, 15.0), 2)
+
         views = self.generate_post_type_behavior(post_type)
         views = self.inject_anomaly(views)
         likes, comments, shares = self.generate_engagement(views)
@@ -154,6 +156,7 @@ class ScalableContentGenerator:
             'comments': comments,
             'shares': shares,
             'views': views,
+            "avg_wait_time": avg_wait_time,
             'geotag': geotag,
             'device_type': device_type
         }
